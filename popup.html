@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>S3 Lens - Unity Catalog</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S3 Lens</h1>
+      <p class="subtitle">Unity Catalog Path Resolver</p>
+
+      <!-- Config Section -->
+      <section>
+        <label for="workspace-url">Workspace URL</label>
+        <input
+          type="url"
+          id="workspace-url"
+          placeholder="https://my-workspace.cloud.databricks.com"
+        />
+
+        <label for="pat-token">PAT Token</label>
+        <input
+          type="password"
+          id="pat-token"
+          placeholder="dapi..."
+        />
+
+        <label for="warehouse-id">SQL Warehouse ID</label>
+        <input
+          type="text"
+          id="warehouse-id"
+          placeholder="45edbe085e69d5a9"
+        />
+
+        <div class="btn-row">
+          <button id="save-btn" class="btn secondary">Save</button>
+          <button id="test-btn" class="btn primary">Test Connection</button>
+        </div>
+      </section>
+
+      <!-- Cache Section -->
+      <section>
+        <h2>Cache</h2>
+        <div id="cache-stats" class="hint">Loading...</div>
+        <div id="cache-updated" class="hint"></div>
+        <button id="clear-cache-btn" class="btn danger">Clear Cache</button>
+      </section>
+
+      <!-- Status messages -->
+      <div id="message" class="message hidden"></div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

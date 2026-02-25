@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "S3 Lens - Unity Catalog Viewer",
+  "version": "0.1.0",
+  "description": "Resolves Databricks Unity Catalog UUID storage paths to human-readable catalog.schema.table names on AWS S3 Storage Lens pages.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.cloud.databricks.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://eu-west-1.console.aws.amazon.com/*",
+        "https://*.console.aws.amazon.com/s3/storage-lens/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
